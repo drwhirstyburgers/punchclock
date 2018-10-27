@@ -28,3 +28,5 @@ I will use user stories to work through each feature:
     - I define current_teacher, which returns the current teacher of the application.  current_user encapsulates the pattern of finding the current user that we would otherwise call throughout punchclock. Thus we won't have to constantly call  Teacher.find_by(id: session[:teacher_id]); current_teacher is our shortcut to that functionality.
   - SessionsController has no way of finding create_session - it won't recognize it as a valid method. I need to include SessionsHelper either directly in SessionsController, or in ApplicationController (which SessionsController inherits from). I will add it to  ApplicationController, since I'll need to use it in other controllers later.
   - I need to add sessions to the routes.
+  - I need to create the sign-in view.
+  
