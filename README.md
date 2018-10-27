@@ -16,4 +16,4 @@ I will use user stories to work through each feature:
   - to simplify and make the code DRY I will use a private function to pass the correct params to the create method.
   - I thought that since there are validations, I would build a helper method to display what the expectations are if they are violated in the form in the view.
 2. As a user I want to be able to sign in into my account using my email
-  - 
+  -
