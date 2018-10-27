@@ -45,3 +45,5 @@ I will use user stories to work through each feature:
   - The new will just be a page with a clock in button that updates the clock_in time
   - create will need to call a method that updates the working attribute to true on the currrent teacher. It will be defined in the teacher model and called in the shifts controller.
   - I need to create a conditional in application.html.erb so if the person is currently working they dont have the option to clock in
+
+4, As a user I want to be able to clock out
