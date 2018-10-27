@@ -29,4 +29,5 @@ I will use user stories to work through each feature:
   - SessionsController has no way of finding create_session - it won't recognize it as a valid method. I need to include SessionsHelper either directly in SessionsController, or in ApplicationController (which SessionsController inherits from). I will add it to  ApplicationController, since I'll need to use it in other controllers later.
   - I need to add sessions to the routes.
   - I need to create the sign-in view.
-  
+
+3.
