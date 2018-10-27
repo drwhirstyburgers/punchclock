@@ -6,7 +6,7 @@ I will use user stories to work through each feature:
   - I considered using Devise, but anytime I have tried to modify devise it turns into a headache, so for simplicities sake I will build from the ground up.
   - The teacher model will need certain attributes, a name, an email, a password. and a working:boolean.
     - The password will need to be encrypted, I will use the bcrypt gem for this because I have used it before and am familiar with how it works.
-    - the working boolean will be useful for setting up conditionals later to check if a teacher is already working so they can't punch in twice.
+    - the working boolean will be useful for setting up conditionals later to check if a teacher is already working so they can't punch in twice. It will be default to false because they wont be teaching.
   - I started with the teacher login because once I have sessions set up I can scope the shift events to that teacher. It just seems straightforward to me this way.
   - I will add some validations to the Teacher model to make sure that people can't accidentally enter empty fields, I will also make sure that the email is unique so that people don't create multiple accounts.
     - the email will need to be made downcase from the user model so I can prevent problems arising from case sensitivity.
@@ -34,6 +34,14 @@ I will use user stories to work through each feature:
 3. As a user I want to be able to punch into my shifts
   - First I will need a shifts model. I considered making a punchin and punchout model but I can't see any advantage to this other than making the relationships between objects more complex. As such I just have shift model in belongs_to has_many relationship with the teacher model. This will allow teachers to have many log ins making analysis and analytics easier for future features, rather than just updating the same attribute each shift.
   - I have these attributes clock_in:timestamp clock_out:timestamp date:timestamp. the first two are obvious. The date will be useful later for defining what days the shift were worked so I can scope pay periods and display that information later.
+  - I will have the shifts migration file reference a teacher
   - I have set the default value of date to Date.today so it will just do it as soon as one is created.
   - add belongs_to and has_many to the respective models
-  
+  - I need a shifts controller with an index, new, create and edit
+    - the index will show the current shift and the past worked shifts and any other information
+    - new/create will be to punch in
+    - edit will be to punch out
+  - the index will need to be scoped to the current teacher so I will use the current_teacher method i created earlier
+  - The new will just be a page with a clock in button that updates the clock_in time
+  - create will need to call a method that updates the working attribute to true on the currrent teacher. It will be defined in the teacher model and called in the shifts controller.
+  - I need to create a conditional in application.html.erb so if the person is currently working they dont have the option to clock in

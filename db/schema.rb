@@ -15,9 +15,11 @@ ActiveRecord::Schema.define(version: 20181027210127) do
   create_table "shifts", force: :cascade do |t|
     t.datetime "clock_in"
     t.datetime "clock_out"
-    t.datetime "date"
+    t.datetime "date", default: "2018-10-27 00:00:00"
+    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_shifts_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|

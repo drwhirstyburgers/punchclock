@@ -12,4 +12,8 @@ class Teacher < ApplicationRecord
             length: { minimum: 3, maximum: 254 }
 
   has_secure_password
+
+  def update_working
+    self.update_attributes(:working => true)
+  end
 end
