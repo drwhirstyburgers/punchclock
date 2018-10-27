@@ -17,4 +17,11 @@ I will use user stories to work through each feature:
   - I thought that since there are validations, I would build a helper method to display what the expectations are if they are violated in the form in the view.
 
 2. As a user I want to be able to sign in into my account using my email
-  -
+  - I will need a sessions controller in order to do this.
+  - the sessions controller will need new, create and destroy methods.
+    - the new method requires nothing
+    - the create method will assign a teacher variable where it will find a teacher by their email and downcase it. It will then check if the email and username are correct and then start the create_session method also to be written as a helper method.
+    - the destroy method will implement some wishful coding with a destroy_session helper method I will write in a minute
+  - I will need some helper methods that need to be accessible to the entire app,
+  so I will write them in application_helper.rb
+    - 
