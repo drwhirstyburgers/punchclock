@@ -22,6 +22,9 @@ I will use user stories to work through each feature:
     - the new method requires nothing
     - the create method will assign a teacher variable where it will find a teacher by their email and downcase it. It will then check if the email and username are correct and then start the create_session method also to be written as a helper method.
     - the destroy method will implement some wishful coding with a destroy_session helper method I will write in a minute
-  - I will need some helper methods that need to be accessible to the entire app,
-  so I will write them in application_helper.rb
-    - 
+  - I will need some helper methods:
+    - I define create_session. create_session sets user_id on the session object to  teacher.id, which is unique for each teacher. session is an object Rails provides to track the state of a particular user. There is a one-to-one relationship between session objects and user ids. A one-to-one relationship means that a session object can only have one user id and a user id is related to one session object.
+    -  I define destroy_session. I clear the teacher id on the session object by setting it to nil, which effectively destroys the teacher session because we can't track it via their id any longer.
+    - I define current_teacher, which returns the current teacher of the application.  current_user encapsulates the pattern of finding the current user that we would otherwise call throughout punchclock. Thus we won't have to constantly call  Teacher.find_by(id: session[:teacher_id]); current_teacher is our shortcut to that functionality.
+  - SessionsController has no way of finding create_session - it won't recognize it as a valid method. I need to include SessionsHelper either directly in SessionsController, or in ApplicationController (which SessionsController inherits from). I will add it to  ApplicationController, since I'll need to use it in other controllers later.
+  - I need to add sessions to the routes.
