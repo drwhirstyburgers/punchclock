@@ -8,6 +8,6 @@ module ApplicationHelper
   def shift_length(clock_in, clock_out)
     ti = clock_in.to_time
     to = clock_out.to_time
-    tt = ((to - ti) / 1.hour)
+    tt = ((to - ti) / 1.hour).round(2)
   end
 end

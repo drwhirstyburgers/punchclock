@@ -26,7 +26,7 @@
               </div>
             <% end %>
           </div></br>
-        <small>Clocked in at: <%= cw.clock_in %></small>
+        <small>Clocked in at: <%= cw.clock_in.to_formatted_s(:time) %></small>
       </div>
     </div>
     <% end %>
@@ -39,12 +39,12 @@
     <div class="media">
       <div class="media-body">
         <h4 class="media-heading">
-          <%= f.teacher.name %>
+          <%= f.teacher.name %> - <%= f.date.to_formatted_s(:long_ordinal) %>
         </h4>
         <small>
-          Worked from <%= f.clock_in %> to <%= f.clock_out %> on <%= f.date %>
+          Worked from <%= f.clock_in.to_formatted_s(:time) %> to <%= f.clock_out.to_formatted_s(:time) %>
         </small>
-        <p>Hours Worked: <%= shift_length(f.clock_in, f.clock_out) %></p>
+        <p>You worked <%= shift_length(f.clock_in, f.clock_out) %> hours on <%= f.date.strftime("%m/%d/%Y") %> </p>
       </div>
     </div>
   <% end %>
