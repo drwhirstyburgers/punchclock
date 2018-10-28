@@ -13,11 +13,13 @@ class Teacher < ApplicationRecord
 
   has_secure_password
 
+  enum working: [:not_working, :working]
+
   def update_working
-    self.update_attributes!(:working => 1)
+    self.update_attributes!(:working => :working)
   end
 
   def not_working
-    self.update_attributes!(:working => 0)
+    self.update_attributes!(:working => :not_working)
   end
 end

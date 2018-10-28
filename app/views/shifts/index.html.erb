@@ -1,5 +1,5 @@
 <h1>Time Sheet</h1>
-<% if current_teacher.working == 0 %>
+<% if current_teacher.not_working? %>
    <h3>You are not currently clocked in!</h3>
 <% else %>
   <h3>Current Shift:</h3>

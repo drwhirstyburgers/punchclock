@@ -76,4 +76,7 @@ I will use user stories to work through each feature:
     - I noticed that when I tried to come back to the heroku app after I had left it inactive I would get an error message because the session had ended but the browser was trying to render the last page I had been on.
     - I will trigger the method in the before action on the shifts controller.
 
+  3. As a developer I want to utilize enumerators to determine whether the teacher is working.
+    - Updating the boolean from a method was proving rather challenging so I switched to the enumerator method. It also offers a little more dynamism in terms of calling it in conditionals. 
+
 I have worked hard on this. I hope it shows what I am capable of.

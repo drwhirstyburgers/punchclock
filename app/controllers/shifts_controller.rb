@@ -1,6 +1,6 @@
 class ShiftsController < ApplicationController
   before_action :require_sign_in
-  
+
   def index
     @teacher = current_teacher
     @shifts = @teacher.shifts
@@ -12,7 +12,7 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    if current_teacher.working == 0
+    if current_teacher.not_working?
       @shift = current_teacher.shifts.new(shift_params)
       @teacher = current_teacher
       @teacher.update_working
@@ -25,6 +25,7 @@ class ShiftsController < ApplicationController
         render :new
       end
     else
+      flash.now[:alert] = "You are already clocked in!"
       redirect_to teacher_shifts_path(current_teacher)
     end
   end

@@ -25,9 +25,9 @@
             <li><%= link_to "About", welcome_about_path  %></li>
             <% if current_teacher %>
               <li><%= link_to "Sign Out", session_path(current_teacher), method: :delete %></li>
-            <% if current_teacher.working == 0 %>
-              <li><%= link_to "Clock In", new_teacher_shift_path(current_teacher)  %></li>
-            <% end %>
+              <% if current_teacher.not_working? %>
+                <li><%= link_to "Clock In", new_teacher_shift_path(current_teacher)  %></li>
+              <% end %>
               <li><%= link_to "Time Sheet", teacher_shifts_path(current_teacher)  %></li>
             <% else %>
               <li><%= link_to "Sign In", new_session_path  %></li>
