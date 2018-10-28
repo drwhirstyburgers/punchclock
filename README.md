@@ -77,6 +77,9 @@ I will use user stories to work through each feature:
     - I will trigger the method in the before action on the shifts controller.
 
   3. As a developer I want to utilize enumerators to determine whether the teacher is working.
-    - Updating the boolean from a method was proving rather challenging so I switched to the enumerator method. It also offers a little more dynamism in terms of calling it in conditionals. 
+    - Updating the boolean from a method was proving rather challenging so I switched to the enumerator method. It also offers a little more dynamism in terms of calling it in conditionals.
+
+  4. As a user I want to see my most recent shifts first.
+    - I will just quickly add "default_scope { order('created_at DESC') }" to the shift model to make it more intuitive.
 
 I have worked hard on this. I hope it shows what I am capable of.
