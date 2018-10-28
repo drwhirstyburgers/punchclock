@@ -69,6 +69,11 @@ I will use user stories to work through each feature:
   ## Continuing work
 
   1. As a developer I want to make sure that someone can't punch in while they are already working.
-    - I added a conditional to the create function that asks whether the current teacher is working. That way, if someone hits back and ends up on the clock in page they can't clock in twice. 
+    - I added a conditional to the create function that asks whether the current teacher is working. That way, if someone hits back and ends up on the clock in page they can't clock in twice.
+
+  2. As a developer I want to make sure that people are redirected to the sign in page if they try to access a page they don't have access to.
+    - I will make a require_sign_in method that redirects user to the sign in page if they somehow try and get to a page they dont have access. I will make it a private method in the applpication controller so it is accessible throughout the application.
+    - I noticed that when I tried to come back to the heroku app after I had left it inactive I would get an error message because the session had ended but the browser was trying to render the last page I had been on.
+    - I will trigger the method in the before action on the shifts controller.
 
 I have worked hard on this. I hope it shows what I am capable of.

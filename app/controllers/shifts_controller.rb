@@ -1,4 +1,6 @@
 class ShiftsController < ApplicationController
+  before_action :require_sign_in
+  
   def index
     @teacher = current_teacher
     @shifts = @teacher.shifts
