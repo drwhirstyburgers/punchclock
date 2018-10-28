@@ -1,2 +1,8 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="jumbotron">
+  <h1>Punch Clock</h1>
+   <p>A Punchclock Application</p>
+   <p>
+     <%= link_to "Sign In", new_session_path %> or
+     <%= link_to "Sign Up", new_teacher_path, class: 'btn btn-primary' %> today!
+   </p>
+</div>
