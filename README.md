@@ -86,7 +86,13 @@ I will use user stories to work through each feature:
     - This is proving most challenging for me. I will consult a to do app I created wherein the to-dos were created from the users new view.
     - so far I have tried using helper methods, but I had trouble passing the object to the method.
     - I am pretty sure I have to manipulate the routes to modify the AJAX requests accordingly.
-    - I managed to do it by manipulating the routes to match to the action in the controller and passing the correct data to the forms via the controller and each loops. 
+    - I managed to do it by manipulating the routes to match to the action in the controller and passing the correct data to the forms via the controller and each loops.
+
+## Future considerations:
+
+1. As a user I would like to see how many hours I worked in the last pay period.
+
+2. As a user I want to see how much money I made in the past pay period.
 
 
 I have worked hard on this. I hope it shows what I am capable of.
