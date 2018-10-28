@@ -47,3 +47,21 @@ I will use user stories to work through each feature:
   - I need to create a conditional in application.html.erb so if the person is currently working they dont have the option to clock in
 
 4, As a user I want to be able to clock out
+  - I used the update method because I was unable to find a way to call a method from the index view or with a button in the navbar that would just clock out and update all the attributes that are necessary. I will spend more time on this another time.
+  - I used conditionals to update the views based on whether or not someone is logged in.
+
+5. As a user I want an index of shifts worked and the one I am currently working.
+  - I have updated the index with conditionals to display whether the current teacher is working with an option to clock out from there if they are.
+  - otherwise it only displays the shifts worked scoped to the current teacher as per the controller.
+  - I recycled my hours worked method and attached it to this app so the user can see how long their shift was,
+
+## Future considerations
+
+6. As a user I would like to know how many hours I worked in a pay period
+  - I could use the dates to figure this out somehow.
+
+7. As an administrator I would like to see hours worked according to employees
+  - create a teachers index that would authenticate the role of the user_id
+  - each teacher would be a link that would have a list of the shifts they have worked.
+
+I have worked hard on this. I hope it shows what I am capable of.
