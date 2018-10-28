@@ -10,16 +10,20 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    @shift = current_teacher.shifts.new(shift_params)
-    @teacher = current_teacher
-    @teacher.update_working
+    if current_teacher.working == 0
+      @shift = current_teacher.shifts.new(shift_params)
+      @teacher = current_teacher
+      @teacher.update_working
 
-    if @shift.save
-      flash[:notice] = "You have clocked in at #{Time.now}"
-      redirect_to teacher_shifts_path(current_teacher)
+      if @shift.save
+        flash[:notice] = "You have clocked in at #{Time.now}"
+        redirect_to teacher_shifts_path(current_teacher)
+      else
+        flash.now[:alert] = "There was an error. Please try again."
+        render :new
+      end
     else
-      flash.now[:alert] = "There was an error. Please try again."
-      render :new
+      redirect_to teacher_shifts_path(current_teacher)
     end
   end
 

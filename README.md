@@ -66,4 +66,9 @@ I will use user stories to work through each feature:
   - create a teachers index that would authenticate the role of the user_id
   - each teacher would be a link that would have a list of the shifts they have worked.
 
+  ## Continuing work
+
+  1. As a developer I want to make sure that someone can't punch in while they are already working.
+    - I added a conditional to the create function that asks whether the current teacher is working. That way, if someone hits back and ends up on the clock in page they can't clock in twice. 
+
 I have worked hard on this. I hope it shows what I am capable of.
