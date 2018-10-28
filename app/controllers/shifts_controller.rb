@@ -24,12 +24,29 @@ class ShiftsController < ApplicationController
   end
 
   def edit
-    @shift = current_teacher.shifts.find(params[:id])
+    @shift = Shift.find(params[:id])
+    @teacher = current_teacher
   end
+
+  def update
+    @shift = Shift.find(params[:id])
+    @shift.assign_attributes(shift_params)
+    @teacher = current_teacher
+    @teacher.not_working
+
+    if @shift.save
+      flash[:notice] = "You clocked out at #{Time.now}"
+      redirect_to teacher_shifts_path
+    else
+      flash.now[:alert] = "There was an error clocking out."
+      render :edit
+    end
+  end
+
 
   private
 
   def shift_params
-    params.require(:shift).permit(:clock_in)
+    params.require(:shift).permit(:clock_in, :clock_out, :current)
   end
 end

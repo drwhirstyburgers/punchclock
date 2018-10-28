@@ -1,4 +1,35 @@
 <h1>Time Sheet</h1>
-<% if @shifts.count == 0 %>
-   <h3>There are currently no worked shifts</h3>
+<% if current_teacher.working == 0 %>
+   <h3>You are not currently clocked in!</h3>
+<% else %>
+  <h3>Current Shift:</h3>
+  <% @shifts.each do |cw| %>
+  <% if cw.current == true %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= cw.teacher.name %>    <%= link_to "Clock Out", edit_teacher_shift_path(current_teacher, cw), class: 'btn btn-danger' %>
+        </h4>
+        <small>Clocked in at: <%= cw.clock_in %></small>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h3>Past Shifts:</h3>
+<% @shifts.each do |f| %>
+  <% if f.current == false %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= f.teacher.name %>
+        </h4>
+        <small>
+          Worked from <%= f.clock_in %> to <%= f.clock_out %> on <%= f.date %>
+        </small>
+        <p>Hours Worked: <%= shift_length(f.clock_in, f.clock_out) %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>

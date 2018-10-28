@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20181027210127) do
     t.datetime "clock_in"
     t.datetime "clock_out"
     t.datetime "date", default: "2018-10-27 00:00:00"
+    t.boolean "current", default: true
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,7 +27,7 @@ ActiveRecord::Schema.define(version: 20181027210127) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.boolean "working", default: false
+    t.integer "working", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

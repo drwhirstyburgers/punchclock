@@ -14,6 +14,10 @@ class Teacher < ApplicationRecord
   has_secure_password
 
   def update_working
-    self.update_attributes(:working => true)
+    self.update_attributes!(:working => 1)
+  end
+
+  def not_working
+    self.update_attributes!(:working => 0)
   end
 end

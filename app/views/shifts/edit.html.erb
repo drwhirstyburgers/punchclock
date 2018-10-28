@@ -1,2 +1,8 @@
-<h1>Shifts#edit</h1>
-<p>Find me in app/views/shifts/edit.html.erb</p>
+<h1>Clock Out</h1>
+<%= form_for [@teacher, @shift] do |f| %>
+  <%= f.hidden_field :clock_out, :value => Time.now %>
+  <%= f.hidden_field :current, :value => false %>
+  <div class="form-group">
+    <%= f.submit "Clock Out", class: 'btn btn-danger' %>
+  </div>
+<% end %>
