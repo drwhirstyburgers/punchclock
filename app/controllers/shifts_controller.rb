@@ -4,6 +4,7 @@ class ShiftsController < ApplicationController
   def index
     @teacher = current_teacher
     @shifts = @teacher.shifts
+    @new_shift = Shift.new
   end
 
   def new

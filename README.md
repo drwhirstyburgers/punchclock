@@ -82,4 +82,11 @@ I will use user stories to work through each feature:
   4. As a user I want to see my most recent shifts first.
     - I will just quickly add "default_scope { order('created_at DESC') }" to the shift model to make it more intuitive.
 
+  5. As a developer I want to be able to call the update and create method from the index in order to avoid unnecessary clicks.
+    - This is proving most challenging for me. I will consult a to do app I created wherein the to-dos were created from the users new view.
+    - so far I have tried using helper methods, but I had trouble passing the object to the method.
+    - I am pretty sure I have to manipulate the routes to modify the AJAX requests accordingly.
+    - I managed to do it by manipulating the routes to match to the action in the controller and passing the correct data to the forms via the controller and each loops. 
+
+
 I have worked hard on this. I hope it shows what I am capable of.
